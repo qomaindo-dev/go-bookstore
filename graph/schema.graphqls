@@ -1,0 +1,95 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Book {
+  id: Int!
+  title: String!
+  synopsis: String!
+  authore: String!
+  publisher: String!
+  stock: Int!
+  price: Float!
+  status: String!
+  created_on: Float!
+  created_by: Int!
+  updated_on: Float!
+  updated_by: Int!
+}
+
+type Employee {
+  id: Int!
+  name: String!
+  email: String!
+  password: String!
+  photo: String!
+  is_active: Boolean!
+  created_on: Float!
+  created_by: Int!
+  updated_on: Float!
+  updated_by: Int!
+}
+
+type Role {
+  id: Int!
+  name: String!
+  description: String!
+  is_deleted: Boolean!
+}
+
+input BookInput {
+  title: String!
+  synopsis: String!
+  authore: String!
+  publisher: String!
+  stock: Int!
+  price: Float!
+  status: String!
+}
+
+input EmployeeInput {
+  name: String!
+  email: String!
+  password: String!
+  photo: String!
+  is_active: Boolean!
+}
+
+input RoleInput {
+  name: String!
+  description: String!
+  is_deleted: Boolean!
+}
+
+type MutationBook {
+  CreateBook(input: BookInput!): Book!
+  DeleteBook(id: Int!): String!
+  UpdateBook(id: Int!, input: BookInput!): String!
+}
+
+type QueryBook {
+  GetAllBooks: [Book!]!
+  GetOneBook(id: Int!): Book!
+}
+
+type MutationEmployee {
+  CreateEmployee(input: EmployeeInput!): Employee!
+  DeleteEmployee(id: Int!): String!
+  UpdateEmployee(id: Int!, input: EmployeeInput!): String!
+}
+
+type QueryEmployee {
+  GetAllEmployees: [Employee!]!
+  GetOneEmployee(id: Int!): Employee!
+}
+
+type MutationRole {
+  CreateRole(input: RoleInput!): Role!
+  DeleteRole(id: Int!): String!
+  UpdateRole(id: Int!, input: RoleInput!): String!
+}
+
+type QueryRole {
+  GetAllRoles: [Role!]!
+  GetOneRole(id: Int!): Role!
+}

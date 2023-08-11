@@ -1,0 +1,31 @@
+go get -u gorm.io/gorm
+
+go get -u gorm.io/driver/postgres
+
+go get github.com/joho/godotenv
+
+printf '// +build tools\npackage tools\nimport _ "github.com/99designs/gqlgen"' | gofmt > tools.go
+
+go mod tidy
+
+go run github.com/99designs/gqlgen
+
+/** Setup database (include create DB, table and others) **/
+    
+sudo -iu postgres psql => for login to postgres in local
+
+/** End setup database **/
+
+/** setup package gqlgen **/
+
+go run github.com/99designs/gqlgen init
+
+/** END **/
+
+// Setup Schema
+     in folder graph/schema.graphqls
+// END
+
+//Generate schema
+go run github.com/99designs/gqlgen
+
